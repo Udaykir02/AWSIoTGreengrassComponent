@@ -1,0 +1,17 @@
+---
+RecipeFormatVersion: "2020-01-25"
+ComponentName: "{COMPONENT_NAME}"
+ComponentVersion: "{COMPONENT_VERSION}"
+ComponentDescription: "A Greengrass component to fetch data from csv file and upload it to S3."
+ComponentPublisher: "{COMPONENT_AUTHOR}"
+Manifests:
+  - Platform:
+      os: all
+    Artifacts:
+      - URI: "s3://BUCKET_NAME/COMPONENT_NAME/COMPONENT_VERSION/csv-gg-component.zip"
+        Unarchive: ZIP
+    Lifecycle:
+      install: | 
+        pip install boto3 --break-system-packages
+      Run: "python3 -u {artifacts:decompressedPath}/csv-gg-component/main.py"
+
