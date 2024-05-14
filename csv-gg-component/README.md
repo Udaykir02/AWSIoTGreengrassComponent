@@ -6,24 +6,6 @@ A custom AWS Greengrass component to periodically fetch data from a csv file and
 
  ![Architecture](architect.png)
 
-## Components
-
-#### Generating CSV File:
-
-- Functions as the pivotal data source housing pertinent information.
-- Data is periodically fetched from directory.
-
-#### AWS Greengrass Component:
-
-- Developed utilizing Python, this bespoke AWS Greengrass component orchestrates the seamless connectivity and data retrieval from the csv directory.
-- Leveraging industry-standard libraries, it establishes a secure connection to the csv directory.
-- Upon connectivity establishment, the component meticulously executes data retrieval operations, adhering to pre-defined schedules.
-- The retrieved dataset undergoes meticulous transformation into a suitable format for subsequent storage on Amazon S3.
-
-#### Amazon S3 Bucket:
-
-- Serves as the quintessential endpoint for storing the extracted data.
-- Data publication to the designated S3 bucket ensures unparalleled durability and scalability.
 
 ## Prerequisites
 
@@ -33,15 +15,17 @@ Before starting the implementation, ensure the following prerequisites are met:
 
 2. **AWS Greengrass Core**: Set up an AWS Greengrass Core on your edge device following the official documentation.
 
-3. **MySQL Database**: Install and configure MySQL database server. Ensure you have appropriate permissions to create and manage databases and tables.
+3. **Python Environment**: Ensure Python is installed on your system. The Python version should be compatible with the AWS Greengrass Core and SDKs.
 
-4. **Python Environment**: Ensure Python is installed on your system. The Python version should be compatible with the AWS Greengrass Core and SDKs.
+4. [Greengrass Installation](Greengrass.md)
 
+## CSV Custom Component
 
 ## Implementation Steps
 
 1. **CSV directory Setup**:
    - Create a directory locally where the simulated data can be stored in csv format.
+   - [Setup for csv](csv.md)
 
 2. **Python Thermostat Simulator**:
    - Create a Python script to simulate thermostat data.
@@ -69,9 +53,9 @@ Before starting the implementation, ensure the following prerequisites are met:
 
 ## References
 
+- [Greengrass Installation](Greengrass.md)
+- [Setup for csv](csv.md)
 - [AWS Greengrass Documentation](https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html)
 - [Python Documentation](https://docs.python.org/)
 - [Linux Commands](Linux.md)
-- [Greengrass Installation](Greengrass.md)
-- [Setup for csv](csv.md)
 
